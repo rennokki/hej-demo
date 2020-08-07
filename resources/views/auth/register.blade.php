@@ -164,7 +164,7 @@
               </svg>
             </a>
             <a
-              href="#"
+              href="{{ route('social.redirect', ['provider' => 'github']) }}"
               class="w-full md:w-1/3 border border-gray-400 shadow-sm hover:shadow py-2 px-2 md:mx-1 mt-2 md:mt-0 rounded-lg"
             >
               <svg

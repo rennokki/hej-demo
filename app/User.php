@@ -5,10 +5,12 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use RenokiCo\Hej\Concerns\HasSocialAccounts;
+use RenokiCo\Hej\Contracts\Sociable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements Sociable
 {
-    use Notifiable;
+    use Notifiable, HasSocialAccounts;
 
     /**
      * The attributes that are mass assignable.

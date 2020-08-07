@@ -19,10 +19,16 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        return view('home', [
+            'github' => $request->user()
+                ->socials()
+                ->whereProvider('github')
+                ->first(),
+        ]);
     }
 }

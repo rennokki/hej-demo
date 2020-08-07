@@ -16,3 +16,17 @@ use Illuminate\Support\Facades\Route;
 Auth::routes(['verify' => true]);
 
 Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('/social/{provider}/redirect', 'SocialiteController@redirect')
+    ->name('social.redirect');
+
+Route::get('/social/{provider}/callback', 'SocialiteController@callback')
+    ->name('social.callback');
+
+Route::get('/social/{provider}/link', 'SocialiteController@link')
+    ->name('social.link')
+    ->middleware('auth');
+
+Route::get('/social/{provider}/unlink', 'SocialiteController@unlink')
+    ->name('social.unlink')
+    ->middleware('auth');
